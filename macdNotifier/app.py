@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import time
 
+# Source: https://medium.com/codex/algorithmic-trading-with-macd-in-python-1c2769a6ad1b
+
 def get_macd(price, slow, fast, smooth):
     exp1 = price.ewm(span = fast, adjust = False).mean()
     exp2 = price.ewm(span = slow, adjust = False).mean()
