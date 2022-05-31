@@ -2,7 +2,7 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 import time
-
+import termcolor
 # Source: https://medium.com/codex/algorithmic-trading-with-macd-in-python-1c2769a6ad1b
 
 def get_macd(price, slow, fast, smooth):
@@ -54,7 +54,7 @@ def checkTick(tick):
     googl_macd = get_macd(googl['Close'], 26, 12, 9)
     googl_macd.tail()
     buy_price, sell_price, macd_signal = implement_macd_strategy(googl['Close'], googl_macd)
-    return macd_signal[-1]!=0
+    return macd_signal[-1]#!=0
 
 if __name__ == "__main__":
     # Put your tickers that you want into the array
@@ -63,6 +63,8 @@ if __name__ == "__main__":
     while True:
         for i in tickers:
             print(i + " has been checked!")
-            if checkTick(i):
-                print(i + " has crossed, time: " + time.ctime())
+            if checkTick(i) ==  -1:
+                print(termcolor.colored(i + " has crossed, time: " + time.ctime(), "red"))
+            elif checkTick(i) ==  1:
+                print(termcolor.colored(i + " has crossed, time: " + time.ctime(), "green"))
         time.sleep(60)
