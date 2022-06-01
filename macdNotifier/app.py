@@ -63,8 +63,9 @@ if __name__ == "__main__":
     while True:
         for i in tickers:
             print(i + " has been checked!")
-            if checkTick(i) ==  -1:
+            res = checkTick(i)
+            if res ==  -1:
                 print(termcolor.colored(i + " has crossed, time: " + time.ctime(), "red"))
-            elif checkTick(i) ==  1:
+            elif res ==  1:
                 print(termcolor.colored(i + " has crossed, time: " + time.ctime(), "green"))
         time.sleep(60)
