@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import time
 import termcolor
+import os
+os.system('color')
 # Source: https://medium.com/codex/algorithmic-trading-with-macd-in-python-1c2769a6ad1b
 
 def get_macd(price, slow, fast, smooth):

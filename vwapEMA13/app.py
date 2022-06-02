@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import termcolor
+import os
+os.system('color')
 
 def vwap(df):
     q = df.Volume
