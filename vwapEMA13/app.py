@@ -40,6 +40,6 @@ if __name__ == "__main__":
             # print(res)
             # print(size)
             if len(res[0]) > 0:
-                if res[0][-1] == size:
+                if res[0][-1] == size-1:
                     print(termcolor.colored(i + " has been crossed at time: "+ time.ctime(), "yellow"))
         time.sleep(60)
